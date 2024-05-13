@@ -1,0 +1,143 @@
+Command: vcs -full64 -l comp.log -sverilog -debug_access+all -kdb -lca -P /home/cad/eda/SYNOPSYS/VERDI_2022/verdi/T-2022.06-SP1/share/PLI/VCS/LINUX64/novas.tab \
+/home/cad/eda/SYNOPSYS/VERDI_2022/verdi/T-2022.06-SP1/share/PLI/VCS/LINUX64/pli.a \
+../rtl/csrc ../rtl/rtl.sv ../rtl/work +incdir+../counter_env +incdir+../env_lib +incdir+../test \
+../env_lib/count_if.sv ../test/coun_pkg.sv ../test/top.sv
+                         Chronologic VCS (TM)
+       Version T-2022.06-SP1_Full64 -- Fri Nov 24 14:17:50 2023
+
+                    Copyright (c) 1991 - 2022 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+
+
+Warning-[LCA_FEATURES_ENABLED] Usage warning
+  LCA features enabled by '-lca' argument on the command line.  For more 
+  information regarding list of LCA features please refer to Chapter "LCA 
+  features" in the VCS Release Notes
+
+Parsing design file '../rtl/rtl.sv'
+Parsing design file '../env_lib/count_if.sv'
+Parsing design file '../test/coun_pkg.sv'
+Parsing included file '../env_lib/count_trans.sv'.
+Back to file '../test/coun_pkg.sv'.
+Parsing included file '../env_lib/gen.sv'.
+Back to file '../test/coun_pkg.sv'.
+Parsing included file '../env_lib/wr_drv.sv'.
+Back to file '../test/coun_pkg.sv'.
+Parsing included file '../env_lib/wr_mon.sv'.
+Back to file '../test/coun_pkg.sv'.
+Parsing included file '../env_lib/rd_mon.sv'.
+Back to file '../test/coun_pkg.sv'.
+Parsing included file '../env_lib/rf_mod.sv'.
+Back to file '../test/coun_pkg.sv'.
+Parsing included file '../env_lib/sb.sv'.
+Back to file '../test/coun_pkg.sv'.
+Parsing included file '../counter_env/counter_env.sv'.
+Back to file '../test/coun_pkg.sv'.
+Parsing included file '../test/test.sv'.
+Back to file '../test/coun_pkg.sv'.
+Parsing design file '../test/top.sv'
+Top Level Modules:
+       count_top
+No TimeScale specified
+
+Warning-[PCWM-W] Port connection width mismatch
+../test/top.sv, 12
+"rtl xyz( .clk (clock),  .din (count_top.DUV_IF.din),  .load (count_top.DUV_IF.load),  .up_down (count_top.DUV_IF.up_down),  .resetn (count_top.DUV_IF.resetn),  .count (count_top.DUV_IF.count));"
+  The following 1-bit expression is connected to 4-bit port "up_down" of 
+  module "rtl", instance "xyz".
+  Expression: count_top.DUV_IF.up_down
+  Instantiated module defined at: "../rtl/rtl.sv", 1
+  Use +lint=PCWM for more details.
+
+
+Warning-[ICPSD_W] Illegal combination of drivers
+../env_lib/count_if.sv, 7
+  Illegal combination of structural and procedural drivers.
+  Variable "up_down" is driven by an invalid combination of structural and 
+  procedural drivers. Variables driven by a structural driver cannot have any 
+  other drivers.
+  This variable is declared at "../env_lib/count_if.sv", 7: logic up_down;
+  The first driver is at "../test/top.sv", 12: rtl xyz( .clk (clock),  .din 
+  (count_top.DUV_IF.din),  .load (count_top.DUV_IF.load),  .up_down 
+  (count_top.DUV_IF.up_down),  .resetn (count_top.DUV_IF.resetn), ...
+  The second driver is at "../env_lib/count_if.sv", 17: output up_down = 
+  up_down;
+  
+  This warning will be upgraded to error in future releases
+  
+
+
+Warning-[CPBRM] Precision or Sign Mismatch
+../env_lib/sb.sv, 19
+  Potential precision or sign mismatch in range values of user defined bin 
+  load of coverpoint Load in covergroup count_pkg::count_sb::counter_coverage
+  Source info: bins load = { [1'b0:11] } ;. Values outside the valid 
+  coverpoint range will either be deleted(singleton values) or 
+  adjusted(ranges) as per the precision semantics.
+
+
+Warning-[CPBRM] Precision or Sign Mismatch
+../env_lib/sb.sv, 20
+  Potential precision or sign mismatch in range values of user defined bin 
+  up_down of coverpoint up_down in covergroup 
+  count_pkg::count_sb::counter_coverage
+  Source info: bins up_down = { [1'b0:11] } ;. Values outside the valid 
+  coverpoint range will either be deleted(singleton values) or 
+  adjusted(ranges) as per the precision semantics.
+
+Starting vcs inline pass...
+
+5 modules and 0 UDP read.
+recompiling package vcs_paramclassrepository
+recompiling module rtl
+recompiling module count_if
+recompiling package count_pkg
+recompiling module count_top
+All of 5 modules done
+
+Warning-[ICPSD_W] Illegal combination of drivers
+../env_lib/count_if.sv, 7
+  Illegal combination of structural and procedural drivers.
+  Variable "up_down" is driven by an invalid combination of structural and 
+  procedural drivers. Variables driven by a structural driver cannot have any 
+  other drivers.
+  This variable is declared at "../env_lib/count_if.sv", 7: logic up_down;
+  The first driver is at "../env_lib/count_if.sv", 17
+  Hierarchical path: count_top.DUV_IF
+  The second driver is at "../test/top.sv", 12
+  Hierarchical path: count_top
+  
+  This warning will be upgraded to error in future releases
+  
+
+make[1]: Entering directory '/home1/BPRN01/GonaD/VLSI_RN/SV_LABS/counter/sim/csrc' \
+
+rm -f _cuarc*.so _csrc*.so pre_vcsobj_*.so share_vcsobj_*.so
+if [ -x ../simv ]; then chmod a-x ../simv; fi
+g++  -o ../simv      -rdynamic  -Wl,-rpath='$ORIGIN'/simv.daidir -Wl,-rpath=./simv.daidir \
+-Wl,-rpath=/home/cad/eda/SYNOPSYS/VCS/vcs/T-2022.06-SP1/linux64/lib -L/home/cad/eda/SYNOPSYS/VCS/vcs/T-2022.06-SP1/linux64/lib \
+-Wl,-rpath-link=./  /usr/lib64/libnuma.so.1   objs/amcQw_d.o   _1975534_archive_1.so \
+SIM_l.o      rmapats_mop.o rmapats.o rmar.o rmar_nd.o  rmar_llvm_0_1.o rmar_llvm_0_0.o \
+-lvirsim -lerrorinf -lsnpsmalloc -lvfs /home/cad/eda/SYNOPSYS/VERDI_2022/verdi/T-2022.06-SP1/share/PLI/VCS/LINUX64/pli.a \
+-lvcsnew -lsimprofile -luclinative /home/cad/eda/SYNOPSYS/VCS/vcs/T-2022.06-SP1/linux64/lib/vcs_tls.o \
+-Wl,-whole-archive  -lvcsucli    -Wl,-no-whole-archive        _vcs_pli_stub_.o   \
+/home/cad/eda/SYNOPSYS/VCS/vcs/T-2022.06-SP1/linux64/lib/vcs_save_restore_new.o /home/cad/eda/SYNOPSYS/VERDI_2023-03-SP1/verdi/U-2023.03-SP1/share/PLI/VCS/LINUX64/pli.a \
+-ldl -lm  -lc -lpthread -ldl 
+../simv up to date
+make[1]: Leaving directory '/home1/BPRN01/GonaD/VLSI_RN/SV_LABS/counter/sim/csrc' \
+
+CPU time: .338 seconds to compile + .237 seconds to elab + .221 seconds to link
+Verdi KDB elaboration done and the database successfully generated: 0 error(s), 0 warning(s)
